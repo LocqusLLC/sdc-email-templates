@@ -179,25 +179,27 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <h1>New Roof Lead</h1>
+                                                        <h1>{{event.data.title}} Lead</h1>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <h2>$29.00</h2>
+                                                        <h2>${{event.data.price}}</h2>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <a class="button" href="https://www.google.com" target="_blank">Add to Cart</a>
+                                                        <a class="button" href="{{event.data.action.url}}" target="_blank">{{event.data.action.text}}</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
+                                    {% if event.data.image %}
                                     <td align="right" class="img img-header">
-                                        <img class="img" width="100" height="100" src="https://s3-us-west-2.amazonaws.com/service.com-integration/static/img/placeholders/roof_image-9d1a418d-0e8b-40e2-891b-74be4b9c5df7.png"/>
+                                        <img class="img" width="100" height="100" src="{{event.data.image}}"/>
                                     </td>
+                                    {% endif %}
                                 </tr>
                             </tbody>
                         </table>
@@ -207,14 +209,16 @@
                     <td>
                         <table class="content" cellpadding="0" cellspacing="0">
                             <tbody>
+                                {% if event.data.image %}
                                 <tr>
                                     <td>
-                                        <img class="img img-content" width="100" height="100" src="https://s3-us-west-2.amazonaws.com/service.com-integration/static/img/placeholders/roof_image-9d1a418d-0e8b-40e2-891b-74be4b9c5df7.png"/>
+                                        <img class="img img-content" width="100" height="100" src="{{event.data.image}}"/>
                                     </td>
                                 </tr>
+                                {% endif %}
                                 <tr>
                                     <td>
-                                        <p style="margin-bottom: 28px;">Our homeowner <span class="strong">Mike</span>
+                                        <p style="margin-bottom: 28px;">Our homeowner <span class="strong">{{event.data.name}}</span>
                                             needs some work done. To accept this job review the info and add this job to the cart.</p>
                                     </td>
                                 </tr>
@@ -227,14 +231,12 @@
                         <table class="qa-content double" style="padding-bottom: 0px" cellpadding="0" cellspacing="0">
                             <tbody>
                                 <tr>
+                                    {% for x in event.data.x %}
                                     <td class="qa-col">
-                                        <span class="strong qa que">Phone</span>
-                                        <p class="qa ans">(248) ***-****</p>
+                                        <span class="strong qa que">{{x.q}}</span>
+                                        <p class="qa ans">{{x.a}}</p>
                                     </td>
-                                    <td>
-                                        <span class="strong qa que">Address</span>
-                                        <p class="qa ans">3244 ********** Dr, Michigan</p>
-                                    </td>
+                                    {% endfor %}
                                 </tr>
                             </tbody>
                         </table>

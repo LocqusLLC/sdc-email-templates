@@ -1,0 +1,64 @@
+@import 'settings';
+@import 'foundation-emails';
+
+@import 'template/template';
+
+$hmargin: 36px;
+
+body {
+    user-select: none;
+}
+
+h1,h2 {
+    color: $white;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+
+.hero {
+    background-color: #ffab40;
+}
+
+.nm {
+    margin: 0;
+    Margin: 0;
+    padding: 0;
+}
+
+img {
+    border-radius: 3px !important;
+    width: 100 !important;
+    height: 100 !important;
+    max-width: 100px !important;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+}
+
+.t {
+    font-size: 14px;
+}
+
+.q {
+    color: #212121;
+    font-weight: normal;
+    margin-bottom: 0px;
+    Margin-bottom: 0px;
+}
+
+.a {
+    color: #212121;
+    margin-bottom: 30px;
+    Margin-bottom: 30px;
+}
+
+.bg {
+    background: #ffffff;
+}
+
+.f {
+    color: #999999;
+}
