@@ -27,7 +27,7 @@ A `node_modules` folder will be created.
 
 ## Development
 
-**Start the foundation gulp task to build foundation/src/pages*.html**
+**Start the foundation gulp task to build foundation/src/pages/.html**
 
 `cd foundation`
 
