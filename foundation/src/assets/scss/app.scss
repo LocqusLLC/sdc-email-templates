@@ -55,10 +55,12 @@ img {
     Margin-bottom: 30px;
 }
 
-.bg {
+.fg {
     background: #ffffff;
+    max-width: $global-width;
 }
 
 .f {
     color: #999999;
+    text-align: center;
 }

@@ -1,0 +1,113 @@
+    <!-- 2 column list -->
+    {% for x in event.data.x %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% if modulo_2 != 0 %}
+        {% continue %}
+      {% endif %}
+    <row>
+        {% assign limit_index = row_loop | plus: 2 %}
+        {% for x in event.data.x offset: row_loop %}
+          {% assign rl2 = forloop.index0 | plus: row_loop %}
+          {% if rl2 == limit_index %}
+            {% break %}
+          {% endif %}
+          <columns large="6">
+            <span class="t q"><b>\{{x.q}}</b></span>
+            <p class="t a">\{{x.a}}</p>
+          </columns>
+        {% endfor %}
+    </row> 
+    {% endfor %}
+
+    <spacer size="32"></spacer>
+
+    <!-- 2 column list -->
+    {% for x in event.data.qa %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% if modulo_2 != 0 %}
+        {% continue %}
+      {% endif %}
+    <row>
+        {% assign limit_index = row_loop | plus: 2 %}
+        {% for x in event.data.qa offset: row_loop %}
+          {% assign rl2 = forloop.index0 | plus: row_loop %}
+          {% if rl2 == limit_index %}
+            {% break %}
+          {% endif %}
+          <columns large="6">
+            <span class="t q"><b>\{{x.q}}</b></span>
+            <p class="t a">\{{x.a}}</p>
+          </columns>
+        {% endfor %}
+    </row> 
+
+
+  <!-- WITHOUT BREAK OR CONTINUE -->
+
+      <!-- 2 column list -->
+    {% assign lock_1 = true %}
+    {% assign lock_2 = true %}
+
+    {% for x in event.data.x %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% assign lock_1 = true %}
+      {% if modulo_2 != 0 %}
+        {% assign lock_1 = false %}
+      {% endif %}
+
+      {% if lock_1 == true %}
+        {% assign lock_2 = true %}
+        <row>
+            {% assign limit_index = row_loop | plus: 2 %}
+            {% for x in event.data.x offset: row_loop %}
+              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
+              {% if row_loop_2 == limit_index %}
+                {% assign lock_2 = false %}
+              {% endif %}
+              {% if lock_2 == true %}
+                <columns large="6">
+                  <span class="t q"><b>\{{x.q}}</b></span>
+                  <p class="t a">\{{x.a}}</p>
+                </columns>
+              {% endif %}
+            {% endfor %}
+        </row>
+      {% endif %}
+    {% endfor %}
+
+    <spacer size="32"></spacer>
+
+    <!-- 2 column list -->
+    {% assign lock_1 = true %}
+    {% assign lock_2 = true %}
+
+    {% for x in event.data.qa %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% assign lock_1 = true %}
+      {% if modulo_2 != 0 %}
+        {% assign lock_1 = false %}
+      {% endif %}
+
+      {% if lock_1 == true %}
+        {% assign lock_2 = true %}
+        <row>
+            {% assign limit_index = row_loop | plus: 2 %}
+            {% for x in event.data.qa offset: row_loop %}
+              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
+              {% if row_loop_2 == limit_index %}
+                {% assign lock_2 = false %}
+              {% endif %}
+              {% if lock_2 == true %}
+                <columns large="6">
+                  <span class="t q"><b>\{{x.q}}</b></span>
+                  <p class="t a">\{{x.a}}</p>
+                </columns>
+              {% endif %}
+            {% endfor %}
+        </row>
+      {% endif %}
+    {% endfor %}

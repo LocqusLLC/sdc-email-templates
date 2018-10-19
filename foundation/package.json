@@ -2,7 +2,10 @@
   "name": "foundation-emails-template",
   "version": "1.0.0",
   "description": "Basic template for a Foundation for Emails project.",
-  "repository": "zurb/foundation-emails-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zurb/foundation-emails-template.git"
+  },
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
@@ -52,5 +55,9 @@
     "presets": [
       "es2015"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/zurb/foundation-emails-template/issues"
+  },
+  "homepage": "https://github.com/zurb/foundation-emails-template#readme"
 }

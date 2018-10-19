@@ -5,7 +5,6 @@
             "price": "30.00", 
             "name": "Mike", 
             "action": {"text": "Add to Cart", "url": "https://www.service.com"}, 
-            "image": "https://s3-us-west-2.amazonaws.com/service.com-integration/static/img/placeholders/roof_image-9d1a418d-0e8b-40e2-891b-74be4b9c5df7.png",
             "x": [
                 {"q": "Phone", "a": "(248) xxx-xxxx"}, 
                 {"q": "Address", "a": "3244 xxxxxxxxx xx, (48334) MI"}

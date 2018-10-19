@@ -1,0 +1,110 @@
+---
+subject: New Lead{{content}}
+---
+
+<container class="card">
+  <row>
+    <row class="hero">
+      <columns>
+        <spacer size="36"></spacer>
+        <row>
+          <columns large="6">
+            <h1>\{{event.data.title}} Lead</h1>
+            <h2>$\{{event.data.price}}</h2>
+            <spacer size="24"></spacer>
+            <button class="primary small radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
+          </columns>
+          {% if event.data.image %}
+          <columns large="6">
+              <img class="float-left" src="\{{event.data.image}}" width="100" height="100">
+          </columns>
+          {% endif %}
+        </row>
+      </columns>
+    </row>
+
+    <spacer size="48"></spacer>
+
+    <row>
+      <columns>
+        <p class="t">Our homeowner \{{event.data.name}} needs some work done. To accept this job review the info and add this job to the cart.</p>
+      </columns>
+    </row>
+    <!-- 2 column list -->
+    {% assign lock_1 = true %}
+    {% assign lock_2 = true %}
+
+    {% for x in event.data.x %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% assign lock_1 = true %}
+      {% if modulo_2 != 0 %}
+        {% assign lock_1 = false %}
+      {% endif %}
+
+      {% if lock_1 == true %}
+        {% assign lock_2 = true %}
+        <row>
+            {% assign limit_index = row_loop | plus: 2 %}
+            {% for x in event.data.x offset: row_loop %}
+              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
+              {% if row_loop_2 == limit_index %}
+                {% assign lock_2 = false %}
+              {% endif %}
+              {% if lock_2 == true %}
+                <columns large="6">
+                  <span class="t q"><b>\{{x.q}}</b></span>
+                  <p class="t a">\{{x.a}}</p>
+                </columns>
+              {% endif %}
+            {% endfor %}
+        </row>
+      {% endif %}
+    {% endfor %}
+
+    <spacer size="32"></spacer>
+
+    <!-- 2 column list -->
+    {% assign lock_1 = true %}
+    {% assign lock_2 = true %}
+
+    {% for x in event.data.qa %}
+      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
+      {% assign row_loop = forloop.index0 %}
+      {% assign lock_1 = true %}
+      {% if modulo_2 != 0 %}
+        {% assign lock_1 = false %}
+      {% endif %}
+
+      {% if lock_1 == true %}
+        {% assign lock_2 = true %}
+        <row>
+            {% assign limit_index = row_loop | plus: 2 %}
+            {% for x in event.data.qa offset: row_loop %}
+              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
+              {% if row_loop_2 == limit_index %}
+                {% assign lock_2 = false %}
+              {% endif %}
+              {% if lock_2 == true %}
+                <columns large="6">
+                  <span class="t q"><b>\{{x.q}}</b></span>
+                  <p class="t a">\{{x.a}}</p>
+                </columns>
+              {% endif %}
+            {% endfor %}
+        </row>
+      {% endif %}
+    {% endfor %}
+
+    <spacer size="2"></spacer>
+
+  </row>
+    <row class="fg">
+      <columns>
+        <spacer size="28"></spacer>
+        <p class="t f">Service.com 30840 Northwestern Hwy #250, Farmington Hills, MI 48334
+  <br/>
+        <a href="https://www.service.com/about">About</a> | <a href="{% raw %}{% unsubscribe_url %}{% endraw %}">Unsubscribe</a></p>
+      </columns>
+    </row>
+</container>
