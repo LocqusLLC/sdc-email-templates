@@ -9,6 +9,11 @@ body {
     user-select: none;
 }
 
+p {
+    margin: 0px;
+    Margin: 0px;
+}
+
 h1,h2 {
     color: $white !important;
     font-weight: 300 !important;
@@ -51,8 +56,10 @@ img {
 
 .a {
     color: #212121;
-    margin-bottom: 30px;
-    Margin-bottom: 30px;
+    margin-top: 0px;
+    Margin-top: 0px;
+    margin-bottom: 0px;
+    Margin-bottom: 0px;
 }
 
 .fg {
