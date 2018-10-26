@@ -10,9 +10,9 @@ body {
 }
 
 h1,h2 {
-    color: $white;
-    font-weight: 300;
-    margin-bottom: 0px;
+    color: $white !important;
+    font-weight: 300 !important;
+    margin-bottom: 0px !important;
 }
 
 .hero {
@@ -63,4 +63,11 @@ img {
 .f {
     color: #999999;
     text-align: center;
+}
+
+.caption {
+    width: 100px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 5px;
 }

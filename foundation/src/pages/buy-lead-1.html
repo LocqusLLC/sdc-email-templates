@@ -1,7 +1,3 @@
----
-subject: New Lead{{content}}
----
-
 <container class="card">
   <row>
     <row class="hero">
@@ -9,14 +5,26 @@ subject: New Lead{{content}}
         <spacer size="36"></spacer>
         <row>
           <columns large="6">
-            <h1>\{{event.data.title}} Lead</h1>
-            <h2>$\{{event.data.price}}</h2>
+            <h1>\{{event.data.title}}</h1>
+            {% if event.data.subtitle %}
+              <h2>\{{event.data.subtitle}}</h2>
+            {% endif %}
             <spacer size="24"></spacer>
             <button class="primary small radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
           </columns>
-          {% if event.data.image %}
+          {% if event.data.photo %}
           <columns large="6">
-              <img class="float-left" src="\{{event.data.image}}" width="100" height="100">
+              <row>
+                <a href="\{{event.data.photo.image}}" target="_blank">
+                  <img class="float-left" src="\{{event.data.photo.image}}" 
+                       alt="\{{event.data.photo.alt}}" width="100" height="100">
+                </a>
+              </row>
+              <row>
+                {% if event.data.photo.caption %}
+                  <p class="t caption">\{{event.data.photo.caption}}</p>
+                {% endif %}
+              </row>
           </columns>
           {% endif %}
         </row>
@@ -24,46 +32,13 @@ subject: New Lead{{content}}
     </row>
 
     <spacer size="48"></spacer>
-
-    <row>
-      <columns>
-        <p class="t">Our homeowner \{{event.data.name}} needs some work done. To accept this job review the info and add this job to the cart.</p>
-      </columns>
-    </row>
-    <!-- 2 column list -->
-    {% assign lock_1 = true %}
-    {% assign lock_2 = true %}
-
-    {% for x in event.data.x %}
-      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
-      {% assign row_loop = forloop.index0 %}
-      {% assign lock_1 = true %}
-      {% if modulo_2 != 0 %}
-        {% assign lock_1 = false %}
-      {% endif %}
-
-      {% if lock_1 == true %}
-        {% assign lock_2 = true %}
-        <row>
-            {% assign limit_index = row_loop | plus: 2 %}
-            {% for x in event.data.x offset: row_loop %}
-              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
-              {% if row_loop_2 == limit_index %}
-                {% assign lock_2 = false %}
-              {% endif %}
-              {% if lock_2 == true %}
-                <columns large="6">
-                  <span class="t q"><b>\{{x.q}}</b></span>
-                  <p class="t a">\{{x.a}}</p>
-                </columns>
-              {% endif %}
-            {% endfor %}
-        </row>
-      {% endif %}
-    {% endfor %}
-
-    <spacer size="32"></spacer>
-
+    {% if event.data.text %}
+      <row>
+        <columns>
+          <p class="t">\{{event.data.text}}</p>
+        </columns>
+      </row>
+    {% endif %}
     <!-- 2 column list -->
     {% assign lock_1 = true %}
     {% assign lock_2 = true %}
