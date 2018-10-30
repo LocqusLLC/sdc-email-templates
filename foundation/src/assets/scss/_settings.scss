@@ -34,7 +34,7 @@ $body-background: $light-gray;
 $container-background: $white;
 $global-padding: 16px;
 $global-margin: 16px;
-$global-radius: 3px;
+$global-radius: 5px;
 $global-rounded: 500px;
 $global-breakpoint: $global-width;
 
@@ -42,7 +42,7 @@ $global-breakpoint: $global-width;
 // -------
 
 $grid-column-count: 12;
-$column-padding-bottom: $global-padding;
+$column-padding-bottom: 0px;
 $container-radius: 0;
 
 // 3. Block Grid

@@ -10,24 +10,29 @@
               <h2>\{{event.data.subtitle}}</h2>
             {% endif %}
             <spacer size="24"></spacer>
-            <button class="secondary small radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
+            <button class="secondary large radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
           </columns>
           {% if event.data.photo %}
           <columns large="6">
               <row>
-                <a href="\{{event.data.photo.image}}" target="_blank">
-                  <img class="float-left" src="\{{event.data.photo.image}}" 
-                       alt="\{{event.data.photo.alt}}" width="200" height="200">
-                </a>
+                <columns>
+                  <a href="\{{event.data.photo.image}}" target="_blank">
+                    <img class="float-left" src="\{{event.data.photo.image}}" 
+                        alt="\{{event.data.photo.alt}}" width="200" height="200">
+                  </a>
+                </columns>
               </row>
-              <row>
-                {% if event.data.photo.caption %}
+              {% if event.data.photo.caption %}
+              <row style="max-width: 200px;">
+                <columns>
                   <p class="t caption">\{{event.data.photo.caption}}</p>
-                {% endif %}
+                </columns>
               </row>
+              {% endif %}
           </columns>
           {% endif %}
         </row>
+        <spacer size="24"></spacer>
       </columns>
     </row>
 
@@ -38,6 +43,7 @@
           <p class="t">\{{event.data.text}}</p>
         </columns>
       </row>
+      <spacer size="15"></spacer>
     {% endif %}
 
     {% for x in event.data.qa %}
@@ -51,16 +57,15 @@
         </columns>
       </row>
     {% endfor %}
-
-    <spacer size="2"></spacer>
-
+    <spacer size="13"></spacer>
   </row>
-    <row class="fg">
-      <columns>
-        <spacer size="28"></spacer>
-        <p class="t f">Service.com 30840 Northwestern Hwy #250, Farmington Hills, MI 48334
-  <br/>
-        <a href="https://www.service.com/about">About</a> | <a href="{% raw %}{% unsubscribe_url %}{% endraw %}">Unsubscribe</a></p>
-      </columns>
-    </row>
+  <row class="fg">
+    <columns>
+      <spacer size="28"></spacer>
+      <p class="t f">Service.com 30840 Northwestern Hwy #250, Farmington Hills, MI 48334
+<br/>
+      <a href="https://www.service.com/about">About</a> | <a href="{% raw %}{% unsubscribe_url %}{% endraw %}">Unsubscribe</a></p>
+      <spacer size="14"></spacer>
+    </columns>
+  </row>
 </container>

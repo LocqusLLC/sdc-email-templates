@@ -6,7 +6,7 @@
 $hmargin: 36px;
 $img: 200px;
 $text-primary: #212121;
-$text-secondary: #b9b9b9;
+$text-secondary: #9b9b9b;
 
 body {
     user-select: none;
@@ -19,9 +19,9 @@ p {
 }
 
 h1,h2 {
-    color: $white !important;
-    font-weight: 400 !important;
-    margin-bottom: 0px !important;
+    color: $white;
+    font-weight: 400;
+    margin-bottom: 0px;
 }
 
 .hero {
@@ -35,10 +35,10 @@ h1,h2 {
 }
 
 img {
-    border-radius: 3px !important;
-    width: $img !important;
-    height: $img !important;
-    max-width: $img !important;
+    border-radius: 3px;
+    width: $img;
+    height: $img;
+    max-width: $img;
 }
 
 .card {
