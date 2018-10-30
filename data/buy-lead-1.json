@@ -9,7 +9,7 @@
                       "alt": "An image of the homeowners roof"},
             "action": {"text": "See Lead Details", "url": "https://www.service.com"}, 
             "qa": [
-                {"q": "Name", "a": ["Mike", "Mary", "Jane", "a", "b", "c", "d", "e"]},
+                {"q": "Days available", "a": ["Monday", "Tuesday", "Friday"]},
                 {"q": "Phone", "a": ["+XXXXXXXXXX"]}, 
                 {"q": "Address", "a": ["XXXX XXXXXXX XX"]},
                 {"q": "Roof type", "a": ["Asphalt"]},

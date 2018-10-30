@@ -10,14 +10,14 @@
               <h2>\{{event.data.subtitle}}</h2>
             {% endif %}
             <spacer size="24"></spacer>
-            <button class="primary small radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
+            <button class="secondary small radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
           </columns>
           {% if event.data.photo %}
           <columns large="6">
               <row>
                 <a href="\{{event.data.photo.image}}" target="_blank">
                   <img class="float-left" src="\{{event.data.photo.image}}" 
-                       alt="\{{event.data.photo.alt}}" width="100" height="100">
+                       alt="\{{event.data.photo.alt}}" width="200" height="200">
                 </a>
               </row>
               <row>
@@ -31,7 +31,7 @@
       </columns>
     </row>
 
-    <spacer size="48"></spacer>
+    <spacer size="36"></spacer>
     {% if event.data.text %}
       <row>
         <columns>
@@ -39,39 +39,17 @@
         </columns>
       </row>
     {% endif %}
-    <!-- 2 column list -->
-    {% assign lock_1 = true %}
-    {% assign lock_2 = true %}
 
     {% for x in event.data.qa %}
-      {% assign modulo_2 = forloop.index0 | modulo: 2 %}
-      {% assign row_loop = forloop.index0 %}
-      {% assign lock_1 = true %}
-      {% if modulo_2 != 0 %}
-        {% assign lock_1 = false %}
-      {% endif %}
-
-      {% if lock_1 == true %}
-        {% assign lock_2 = true %}
-        <row>
-            {% assign limit_index = row_loop | plus: 2 %}
-            {% for x in event.data.qa offset: row_loop %}
-              {% assign row_loop_2 = forloop.index0 | plus: row_loop %}
-              {% if row_loop_2 == limit_index %}
-                {% assign lock_2 = false %}
-              {% endif %}
-              {% if lock_2 == true %}
-                <columns large="6">
-                  <span class="t q"><b>\{{x.q}}</b></span>
-                  {% for a in x.a %}
-                    <p class="t a">\{{a}}</p>
-                  {% endfor %}
-                  <spacer size="30"></spacer>
-                </columns>
-              {% endif %}
-            {% endfor %}
-        </row>
-      {% endif %}
+      <row>
+        <columns large="6">
+          <span class="t q"><b>\{{x.q}}</b></span>
+          {% for a in x.a %}
+            <p class="t a">\{{a}}</p>
+          {% endfor %}
+          <spacer size="15"></spacer>
+        </columns>
+      </row>
     {% endfor %}
 
     <spacer size="2"></spacer>

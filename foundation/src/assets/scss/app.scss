@@ -4,24 +4,28 @@
 @import 'template/template';
 
 $hmargin: 36px;
+$img: 200px;
+$text-primary: #212121;
+$text-secondary: #b9b9b9;
 
 body {
     user-select: none;
 }
 
 p {
+    color: $text-secondary;
     margin: 0px;
     Margin: 0px;
 }
 
 h1,h2 {
     color: $white !important;
-    font-weight: 300 !important;
+    font-weight: 400 !important;
     margin-bottom: 0px !important;
 }
 
 .hero {
-    background-color: #ffab40;
+    background-color: #547dbd;
 }
 
 .nm {
@@ -32,9 +36,9 @@ h1,h2 {
 
 img {
     border-radius: 3px !important;
-    width: 100 !important;
-    height: 100 !important;
-    max-width: 100px !important;
+    width: $img !important;
+    height: $img !important;
+    max-width: $img !important;
 }
 
 .card {
@@ -44,18 +48,18 @@ img {
 }
 
 .t {
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .q {
-    color: #212121;
+    color: $text-primary;
     font-weight: normal;
     margin-bottom: 0px;
     Margin-bottom: 0px;
 }
 
 .a {
-    color: #212121;
+    color: $text-secondary;
     margin-top: 0px;
     Margin-top: 0px;
     margin-bottom: 0px;
@@ -73,7 +77,7 @@ img {
 }
 
 .caption {
-    width: 100px;
+    width: $img;
     color: #ffffff;
     text-align: center;
     padding-top: 5px;
