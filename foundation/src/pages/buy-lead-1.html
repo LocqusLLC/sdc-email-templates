@@ -4,7 +4,7 @@
       <columns>
         <spacer size="36"></spacer>
         <row>
-          <columns large="6">
+          <columns>
             <h1>\{{event.data.title}}</h1>
             {% if event.data.subtitle %}
               <h2>\{{event.data.subtitle}}</h2>
@@ -13,23 +13,14 @@
             <button class="secondary large radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
           </columns>
           {% if event.data.photo %}
-          <columns large="6">
-              <row>
-                <columns>
-                  <a href="\{{event.data.photo.image}}" target="_blank">
-                    <img class="float-left" src="\{{event.data.photo.image}}" 
-                        alt="\{{event.data.photo.alt}}" width="200" height="200">
-                  </a>
-                </columns>
-              </row>
-              {% if event.data.photo.caption %}
-              <row style="max-width: 200px;">
-                <columns>
-                  <p class="t caption">\{{event.data.photo.caption}}</p>
-                </columns>
-              </row>
-              {% endif %}
-          </columns>
+            <columns>
+              <a href="\{{event.data.photo.image}}" target="_blank">
+                <img class="float-left" src="\{{event.data.photo.image}}" 
+                    alt="\{{event.data.photo.alt}}" width="200" height="200">
+              </a>
+              <spacer size="6"></spacer>
+              <p class="t caption">\{{event.data.photo.caption}}</p>
+            </columns>
           {% endif %}
         </row>
         <spacer size="24"></spacer>
