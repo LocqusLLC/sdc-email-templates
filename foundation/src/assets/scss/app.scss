@@ -7,6 +7,7 @@ $hmargin: 36px;
 $img: 200px;
 $text-primary: #212121;
 $text-secondary: #9b9b9b;
+$text-footer: #999999;
 
 body {
     user-select: none;
@@ -58,8 +59,9 @@ img {
     Margin-bottom: 0px;
 }
 
-.a {
-    color: $text-secondary;
+a {
+    color: $text-footer;
+    text-decoration: underline;
     margin-top: 0px;
     Margin-top: 0px;
     margin-bottom: 0px;
@@ -72,7 +74,7 @@ img {
 }
 
 .f {
-    color: #999999;
+    color: $text-footer;
     text-align: center;
 }
 
