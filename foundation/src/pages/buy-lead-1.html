@@ -1,65 +1,78 @@
-<container class="card">
-  <row>
-    <row class="hero">
-      <columns>
-        <spacer size="36"></spacer>
+<container>
+  <spacer size="28"></spacer>
+  <center>
+      <img class="center"
+          style="width: 180px; height: 24px;"
+          width="180"
+          height="24"
+          src="https://d3p5h8um9af1eb.cloudfront.net/static/email/logo-color.png"
+          href="https://www.service.com"
+          alt="Service.com"/>
+  </center>
+  <spacer size="28"></spacer>
+  <container class="card">
+    <row>
+      <row class="hero">
+        <columns>
+          <spacer size="36"></spacer>
+          <row>
+            <columns>
+              <h1>\{{event.data.title}}</h1>
+              {% if event.data.subtitle %}
+                <h2>\{{event.data.subtitle}}</h2>
+              {% endif %}
+              <spacer size="24"></spacer>
+              <button class="secondary large radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
+            </columns>
+            {% if event.data.photo %}
+              <columns>
+                <a href="\{{event.data.photo.image}}" target="_blank">
+                  <img class="float-left" src="\{{event.data.photo.image}}" 
+                      alt="\{{event.data.photo.alt}}" width="200" height="200">
+                </a>
+                <spacer size="6"></spacer>
+                <p class="t caption">\{{event.data.photo.caption}}</p>
+              </columns>
+            {% endif %}
+          </row>
+          <spacer size="24"></spacer>
+        </columns>
+      </row>
+
+      <spacer size="36"></spacer>
+      {% if event.data.text %}
         <row>
           <columns>
-            <h1>\{{event.data.title}}</h1>
-            {% if event.data.subtitle %}
-              <h2>\{{event.data.subtitle}}</h2>
-            {% endif %}
-            <spacer size="24"></spacer>
-            <button class="secondary large radius" href="\{{event.data.action.url}}">\{{event.data.action.text}}</button>
+            <p class="t">\{{event.data.text}}</p>
           </columns>
-          {% if event.data.photo %}
-            <columns>
-              <a href="\{{event.data.photo.image}}" target="_blank">
-                <img class="float-left" src="\{{event.data.photo.image}}" 
-                    alt="\{{event.data.photo.alt}}" width="200" height="200">
-              </a>
-              <spacer size="6"></spacer>
-              <p class="t caption">\{{event.data.photo.caption}}</p>
-            </columns>
-          {% endif %}
         </row>
-        <spacer size="24"></spacer>
+        <spacer size="15"></spacer>
+      {% endif %}
+
+      {% for x in event.data.qa %}
+        <row>
+          <columns large="6">
+            <span class="t q"><b>\{{x.q}}</b></span>
+            {% for a in x.a %}
+              <p class="t a">\{{a}}</p>
+            {% endfor %}
+            <spacer size="15"></spacer>
+          </columns>
+        </row>
+      {% endfor %}
+      <spacer size="13"></spacer>
+    </row>
+    <row class="fg">
+      <columns>
+        <spacer size="28"></spacer>
+        <p class="t f">
+          Questions? Call us. (888) 805-0010
+          <br/>
+          Service.com 30840 Northwestern Hwy #250, Farmington Hills, MI 48334
+          <br/>
+        <a href="https://www.service.com/become-a-pro">About</a> | <a href="{% raw %}{% unsubscribe_url %}{% endraw %}">Unsubscribe</a></p>
+        <spacer size="14"></spacer>
       </columns>
     </row>
-
-    <spacer size="36"></spacer>
-    {% if event.data.text %}
-      <row>
-        <columns>
-          <p class="t">\{{event.data.text}}</p>
-        </columns>
-      </row>
-      <spacer size="15"></spacer>
-    {% endif %}
-
-    {% for x in event.data.qa %}
-      <row>
-        <columns large="6">
-          <span class="t q"><b>\{{x.q}}</b></span>
-          {% for a in x.a %}
-            <p class="t a">\{{a}}</p>
-          {% endfor %}
-          <spacer size="15"></spacer>
-        </columns>
-      </row>
-    {% endfor %}
-    <spacer size="13"></spacer>
-  </row>
-  <row class="fg">
-    <columns>
-      <spacer size="28"></spacer>
-      <p class="t f">
-        Questions? Call us. (888) 805-0010
-        <br/>
-        Service.com 30840 Northwestern Hwy #250, Farmington Hills, MI 48334
-        <br/>
-      <a href="https://www.service.com/become-a-pro">About</a> | <a href="{% raw %}{% unsubscribe_url %}{% endraw %}">Unsubscribe</a></p>
-      <spacer size="14"></spacer>
-    </columns>
-  </row>
+  </container>
 </container>
